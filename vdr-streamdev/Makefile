@@ -50,6 +50,11 @@ define Package/vdr-streamdev-server/description
   Multicast streaming if you have many clients watching the same channels or as a feed for multicast-only settop boxes.
 endef
 
+define Build/Configure
+	(cd $(PKG_BUILD_DIR)/client/po; $(TOPDIR)/package/multimedia/openwrt-dvb/vdr/po2unicode.sh; \
+	cd $(PKG_BUILD_DIR)/server/po; $(TOPDIR)/package/multimedia/openwrt-dvb/vdr/po2unicode.sh;)
+endef
+
 define Package/vdr-streamdev-client/install
 	$(MAKE) -C $(PKG_BUILD_DIR) DESTDIR=$(1) install-client
 

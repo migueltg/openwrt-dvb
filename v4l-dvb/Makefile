@@ -29,6 +29,12 @@ MAKE_VARS += \
 	SRCDIR=$(LINUX_DIR)
 
 define Build/Prepare
+	(if [ -d $(DL_DIR)/$(V4L_REPO_NAME) ]; \
+		then (cd $(DL_DIR)/$(V4L_REPO_NAME); git checkout HEAD; git pull); \
+	else git clone --single-branch --depth 1000 $(V4L_REPO_URL) $(DL_DIR)/$(V4L_REPO_NAME); \
+	fi; \
+	cd $(DL_DIR)/$(V4L_REPO_NAME); git checkout $(V4L_REPO_VERSION))
+
 	$(call Build/Prepare/Default)
 
 	(if [ -s $(DL_DIR)/$(V4L_SOURCE_FILE) ]; \
