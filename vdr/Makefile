@@ -8,13 +8,13 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME := vdr
-PKG_VERSION := 2.2.0
-PKG_RELEASE := 3
+PKG_VERSION := 2.4.0
+PKG_RELEASE := 1
 
 PKG_SOURCE := vdr-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL := ftp://ftp.tvdr.de/vdr
 #PKG_SOURCE_URL := ftp://ftp.tvdr.de/vdr/Developer
-PKG_HASH := 7c259e1ed1f39d93d23df1d5d0f85dd2a1fa9ec1dadff79e5833e2ff3ebf6c4e
+PKG_HASH := 93af49fe87048073dc38ef5e6c71e9704344d730f21c261afac69e3c937f8cce
 
 PKG_LICENSE := GPL-2.0
 PKG_LICENSE_FILE := COPYING
@@ -30,7 +30,7 @@ define Package/vdr
   CATEGORY := Multimedia
   TITLE := Video Disk Recorder
   URL := http://www.tvdr.de
-  DEPENDS := +fontconfig +libcap +libfreetype +libjpeg +librt +libstdcpp +dejavu-fonts-ttf-DejaVuSans
+  DEPENDS := +fontconfig +libcap +libfreetype +libjpeg +librt +libstdcpp +dejavu-fonts-ttf-DejaVuSans +libexecinfo
 endef
 
 define Package/vdr/description
@@ -72,6 +72,8 @@ MAKE_FLAGS += \
 	VIDEODIR="/mnt/video" \
 	CONFDIR="/etc/vdr" \
 	CACHEDIR="/mnt/video"
+
+TARGET_LDFLAGS += -lexecinfo
 
 define Build/InstallDev
 	$(CP) $(PKG_INSTALL_DIR)/* $(1)/
