@@ -25,7 +25,7 @@ $(eval $(call KernelPackage,dvb-af9013))
 define KernelPackage/dvb-af9033
   TITLE := Afatech AF9033
   $(call DvbFrontend,af9033,CONFIG_DVB_AF9033)
-  DEPENDS += +kmod-dvb-core +kmod-regmap
+  DEPENDS += +kmod-dvb-core +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-af9033))
 
@@ -154,7 +154,7 @@ $(eval $(call KernelPackage,dvb-cx24123))
 define KernelPackage/dvb-cxd2099
   TITLE := Sony CXD2099AR
   $(call DvbFrontend,cxd2099,CONFIG_DVB_CXD2099)
-  DEPENDS += +kmod-regmap
+  DEPENDS += +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-cxd2099))
 
@@ -162,7 +162,7 @@ $(eval $(call KernelPackage,dvb-cxd2099))
 define KernelPackage/dvb-cxd2820r
   TITLE := Sony CXD2820R
   $(call DvbFrontend,cxd2820r,CONFIG_DVB_CXD2820R)
-  DEPENDS += +kmod-dvb-core +kmod-regmap
+  DEPENDS += +kmod-dvb-core +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-cxd2820r))
 
@@ -300,7 +300,7 @@ $(eval $(call KernelPackage,dvb-gp8psk-fe))
 define KernelPackage/dvb-gx1503
   TITLE := National Chip GX1503b
   $(call DvbFrontend,gx1503,CONFIG_DVB_GX1503)
-  DEPENDS += +kmod-i2c-mux +kmod-regmap @V4L_SRC_TBSDTV
+  DEPENDS += +kmod-i2c-mux +kmod-regmap-core @V4L_SRC_TBSDTV
 endef
 $(eval $(call KernelPackage,dvb-gx1503))
 
@@ -438,7 +438,7 @@ $(eval $(call KernelPackage,dvb-lnbp22))
 define KernelPackage/dvb-m88ds3103
   TITLE := Montage Technology M88DS3103
   $(call DvbFrontend,m88ds3103,CONFIG_DVB_M88DS3103)
-  DEPENDS += +kmod-dvb-core +kmod-i2c-mux +kmod-regmap
+  DEPENDS += +kmod-dvb-core +kmod-i2c-mux +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-m88ds3103))
 
@@ -467,7 +467,7 @@ $(eval $(call KernelPackage,dvb-mb86a20s))
 define KernelPackage/dvb-mn88436
   TITLE := Panasonic MN88436
   $(call DvbFrontend,mn88436,CONFIG_DVB_MN88436)
-  DEPENDS += +kmod-regmap @V4L_SRC_TBSDTV
+  DEPENDS += +kmod-regmap-core @V4L_SRC_TBSDTV
 endef
 $(eval $(call KernelPackage,dvb-mn88436))
 
@@ -475,7 +475,7 @@ $(eval $(call KernelPackage,dvb-mn88436))
 define KernelPackage/dvb-mn88443x
   TITLE := Panasonic/Socionext MN88443x
   $(call DvbFrontend,mn88443x,CONFIG_DVB_MN88443X)
-  DEPENDS += @LINUX_4_9 +kmod-dvb-core +kmod-regmap
+  DEPENDS += @LINUX_4_9 +kmod-dvb-core +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-mn88443x))
 
@@ -483,7 +483,7 @@ $(eval $(call KernelPackage,dvb-mn88443x))
 define KernelPackage/dvb-mn88472
   TITLE := Panasonic MN88472
   $(call DvbFrontend,mn88472,CONFIG_DVB_MN88472)
-  DEPENDS += +kmod-dvb-core +kmod-regmap
+  DEPENDS += +kmod-dvb-core +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-mn88472))
 
@@ -491,7 +491,7 @@ $(eval $(call KernelPackage,dvb-mn88472))
 define KernelPackage/dvb-mn88473
   TITLE := Panasonic MN88473
   $(call DvbFrontend,mn88473,CONFIG_DVB_MN88473)
-  DEPENDS += +kmod-dvb-core +kmod-regmap
+  DEPENDS += +kmod-dvb-core +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-mn88473))
 
@@ -513,7 +513,7 @@ $(eval $(call KernelPackage,dvb-mt352))
 define KernelPackage/dvb-mtv23x
   TITLE := RAONTECH mtv23x
   $(call DvbFrontend,mtv23x,CONFIG_DVB_MTV23X)
-  DEPENDS += +kmod-regmap @V4L_SRC_TBSDTV
+  DEPENDS += +kmod-regmap-core @V4L_SRC_TBSDTV
 endef
 $(eval $(call KernelPackage,dvb-mtv23x))
 
@@ -573,7 +573,7 @@ $(eval $(call KernelPackage,dvb-pll))
 define KernelPackage/dvb-rtl2830
   TITLE := Realtek RTL2830
   $(call DvbFrontend,rtl2830,CONFIG_DVB_RTL2830)
-  DEPENDS += +kmod-dvb-core +kmod-i2c-mux +kmod-regmap
+  DEPENDS += +kmod-dvb-core +kmod-i2c-mux +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-rtl2830))
 
@@ -581,7 +581,7 @@ $(eval $(call KernelPackage,dvb-rtl2830))
 define KernelPackage/dvb-rtl2832
   TITLE := Realtek RTL2832
   $(call DvbFrontend,rtl2832,CONFIG_DVB_RTL2832)
-  DEPENDS += +kmod-dvb-core +kmod-i2c-mux +kmod-regmap
+  DEPENDS += +kmod-dvb-core +kmod-i2c-mux +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-rtl2832))
 
@@ -589,7 +589,7 @@ $(eval $(call KernelPackage,dvb-rtl2832))
 define KernelPackage/dvb-rtl2832-sdr
   TITLE := Realtek RTL2832 SDR
   $(call DvbFrontend,rtl2832_sdr,CONFIG_DVB_RTL2832_SDR)
-  DEPENDS += +kmod-regmap +kmod-usb-core +kmod-videobuf2-v4l2 +kmod-videobuf2-vmalloc
+  DEPENDS += +kmod-regmap-core +kmod-usb-core +kmod-videobuf2-v4l2 +kmod-videobuf2-vmalloc
 endef
 $(eval $(call KernelPackage,dvb-rtl2832-sdr))
 
@@ -632,7 +632,7 @@ $(eval $(call KernelPackage,dvb-s921))
 define KernelPackage/dvb-si2165
   TITLE := Silicon Labs Si2165
   $(call DvbFrontend,si2165,CONFIG_DVB_SI2165)
-  DEPENDS += +kmod-dvb-core +kmod-regmap
+  DEPENDS += +kmod-dvb-core +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-si2165))
 
@@ -846,7 +846,7 @@ $(eval $(call KernelPackage,dvb-tda1004x))
 define KernelPackage/dvb-tda10071
   TITLE := NXP TDA10071
   $(call DvbFrontend,tda10071,CONFIG_DVB_TDA10071)
-  DEPENDS += +kmod-regmap
+  DEPENDS += +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-tda10071))
 
@@ -896,7 +896,7 @@ $(eval $(call KernelPackage,dvb-tda826x))
 define KernelPackage/dvb-ts2020
   TITLE := Montage Tehnology TS2020
   $(call DvbFrontend,ts2020,CONFIG_DVB_TS2020)
-  DEPENDS += +kmod-regmap
+  DEPENDS += +kmod-regmap-core
 endef
 $(eval $(call KernelPackage,dvb-ts2020))
 
